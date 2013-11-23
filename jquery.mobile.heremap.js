@@ -24,7 +24,21 @@
             var $elem = this.element;
 
             if ($elem.height() == 0) {
-                $elem.height(this.options.height);
+                if (this.options.height == 'auto') {
+                    function updateMapHeight() {
+                        $elem.height(0);
+                        var $page = $elem.closest(':jqmData(role=page)');
+                        var height = $page.height();
+                        $page.children().each(function(i,el) {
+                            height -= $(el).outerHeight();
+                        });
+                        $elem.height(height);
+                    }
+                    $elem.on('heremapready', updateMapHeight);
+                    $(window).on('throttledresize', updateMapHeight);
+                } else {
+                    $elem.height(this.options.height);
+                }
             }
 
             var mapOptions = {
