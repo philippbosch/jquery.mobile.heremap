@@ -21,9 +21,11 @@ In order to use HERE maps in you app you need to:
 
 1. [Acquire credentials](http://developer.here.com/docs/maps_js/common/credentials.html) on the HERE Developer Portal.
 2. You will get an *app id* and *app code*.
+3. Include the HERE JavaScript API (see code example below).
 3. Configure the plugin with these credentials. This needs to happen after the inclusion of the plugin JS file, e.g.: 
 
 ```html
+<script src="http://js.api.here.com/se/2.5.3/jsl.js?with=all"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/jquery.mobile.heremap.min.js"></script>
 <script>
