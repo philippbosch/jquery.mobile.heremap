@@ -1,0 +1,21 @@
+{
+  "name": "jquery.mobile.heremap",
+  "version": "0.1.0",
+  "description": "HERE Maps widget for jQuery Mobile",
+  "main": "jquery.mobile.heremap.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philippbosch/jquery.mobile.heremap.git"
+  },
+  "keywords": [
+    "jquery",
+    "mobile",
+    "here",
+    "maps"
+  ],
+  "author": "Philipp Bosch <hello@pb.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/philippbosch/jquery.mobile.heremap/issues"
+  }
+}
