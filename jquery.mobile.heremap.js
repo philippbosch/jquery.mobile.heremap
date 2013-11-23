@@ -40,7 +40,7 @@
             this._map = new nokia.maps.map.Display($elem.get(0), mapOptions);
 
             this._map.addListener('displayready', function () {
-                $elem.trigger('heremapready');
+                $elem.trigger('heremapready', [this]);
             });
         },
 
@@ -112,10 +112,6 @@
             })
         }
     });
-
-    // $(document).bind ("pagecreate create", function (e) {
-    //     $(":jqmData(role=heremap)", e.target).heremap();
-    // });
 
     $.splitAndTrim = function(s, separator) {
         if (!separator) {
