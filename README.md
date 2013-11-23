@@ -1,15 +1,15 @@
 jquery.mobile.heremap
 =====================
 
-A jQuery Mobile plugin that makes it easier to include a [HERE map](http://developer.here.com)
+A [jQuery Mobile](http://jquerymobile.com/) plugin that makes it easier to include a [HERE map](http://developer.here.com)
 in your app.
 
 
 Installation
 ------------
 
-1. Download the [latest release](https://github.com/philippbosch/jquery.mobile.heremap/releases)
-2. Unzip
+1. Download the [latest release](https://github.com/philippbosch/jquery.mobile.heremap/releases).
+2. Unzip.
 3. Copy `jquery.mobile.heremap.min.js` (smaller) or `jquery.mobile.heremap.js` (more readable) to your project directory.
 4. Include the file in your HTML code, e.g. `<script src="js/jquery.mobile.heremap.min.js"></script>` after the jQuery Mobile JavaScript.
 
