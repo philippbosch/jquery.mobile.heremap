@@ -26,6 +26,7 @@ In order to use HERE maps in you app you need to:
 
 ```html
 <script src="http://js.api.here.com/se/2.5.3/jsl.js?with=all"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/jquery.mobile.min.js"></script>
 <script src="js/jquery.mobile.heremap.min.js"></script>
 <script>
