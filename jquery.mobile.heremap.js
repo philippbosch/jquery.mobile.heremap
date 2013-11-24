@@ -29,7 +29,7 @@
                         $elem.height(0);
                         var $page = $elem.closest(':jqmData(role=page)');
                         var height = $page.height();
-                        $page.children().each(function(i,el) {
+                        $page.children().not('[data-position="fixed"]').each(function(i,el) {
                             height -= $(el).outerHeight();
                         });
                         $elem.height(height);
@@ -53,7 +53,7 @@
 
             this._map = new nokia.maps.map.Display($elem.get(0), mapOptions);
 
-            this._map.addListener('displayready', function () {
+            this._map.addListener('displayready', function() {
                 $elem.trigger('heremapready', [this]);
             });
         },
