@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jquery.mobile.heremap by philippbosch</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jquery.mobile.heremap</h1>
+        <p>HERE Maps widget for jQuery Mobile</p>
+
+        <p class="view"><a href="https://github.com/philippbosch/jquery.mobile.heremap">View the Project on GitHub <small>philippbosch/jquery.mobile.heremap</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/philippbosch/jquery.mobile.heremap/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/philippbosch/jquery.mobile.heremap/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/philippbosch/jquery.mobile.heremap">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="jquerymobileheremap" class="anchor" href="#jquerymobileheremap"><span class="octicon octicon-link"></span></a>jquery.mobile.heremap</h1>
+
+<p>A <a href="http://jquerymobile.com/">jQuery Mobile</a> plugin that makes it easier to include a <a href="http://developer.here.com">HERE map</a>
+in your app.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>Download the <a href="https://github.com/philippbosch/jquery.mobile.heremap/releases">latest release</a>.</li>
+<li>Unzip.</li>
+<li>Copy <code>jquery.mobile.heremap.min.js</code> (smaller) or <code>jquery.mobile.heremap.js</code> (more readable) to your project directory.</li>
+<li>Include the file in your HTML code, e.g. <code>&lt;script src="js/jquery.mobile.heremap.min.js"&gt;&lt;/script&gt;</code> after the jQuery Mobile JavaScript.</li>
+</ol><h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>In order to use HERE maps in you app you need to:</p>
+
+<ol>
+<li>
+<a href="http://developer.here.com/docs/maps_js/common/credentials.html">Acquire credentials</a> on the HERE Developer Portal.</li>
+<li>You will get an <em>app id</em> and <em>app code</em>.</li>
+<li>Include the HERE JavaScript API (see code example below).</li>
+<li>Configure the plugin with these credentials. This needs to happen after the inclusion of the plugin JS file, e.g.: </li>
+</ol><div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://js.api.here.com/se/2.5.3/jsl.js?with=all"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/jquery.mobile.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/jquery.mobile.heremap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">heremap</span><span class="p">.</span><span class="nx">app_id</span> <span class="o">=</span> <span class="s1">'your app id'</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">heremap</span><span class="p">.</span><span class="nx">app_code</span> <span class="o">=</span> <span class="s1">'your app code'</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></div>
+
+<p>You can of course also put this code in an external file and reference this.</p>
+
+<h2>
+<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
+
+<p>For the most simple use case of just displaying a map you don't need to write any JavaScript code. In your HTML file include the widget like so:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"map"</span> <span class="na">data-role=</span><span class="s">"heremap"</span> <span class="na">data-center=</span><span class="s">"52.41326,13.05006"</span> <span class="na">data-zoomlevel=</span><span class="s">"16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>You can customize the map with the following <code>data-</code> attributes:</p>
+
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Example</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>data-center</code></td>
+<td>the initial center of the map (latitude, longitude)</td>
+<td><code>data-center="52.5,13.3"</code></td>
+</tr>
+<tr>
+<td><code>data-zoomlevel</code></td>
+<td>the initial zoom level (integer)</td>
+<td><code>data-zoomlevel="10"</code></td>
+</tr>
+<tr>
+<td><code>data-basemaptype</code></td>
+<td>one of the <a href="http://developer.here.com/docs/maps_js/topics/changing-map.html#map-types">available map types</a>
+</td>
+<td><code>data-basemaptype="SATELLITE"</code></td>
+</tr>
+<tr>
+<td><code>data-components</code></td>
+<td>a comma-separated list of <a href="http://developer.here.com/docs/maps_js/topics/map-components-and-ui.html">UI components</a>
+</td>
+<td><code>data-components="Behavior,ZoomBar"</code></td>
+</tr>
+</tbody>
+</table><h2>
+<a name="advanced-usage" class="anchor" href="#advanced-usage"><span class="octicon octicon-link"></span></a>Advanced Usage</h2>
+
+<p>If you want to customize the map further (e.g. add markers, bind event listener), you can get a reference to the actual <code>nokia.maps.map.Display</code> instance using the <code>getMap</code> method:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#map'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'heremapready'</span><span class="p">,</span> <span class="nx">configureMap</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">configureMap</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#map'</span><span class="p">).</span><span class="nx">heremap</span><span class="p">(</span><span class="s1">'getMap'</span><span class="p">);</span>
+    <span class="c1">// do something with map here</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Or, even simpler: The <code>heremapready</code> event listener can accept a reference to the map object passed as the second parameter:</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#map'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'heremapready'</span><span class="p">,</span> <span class="nx">configureMap</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">configureMap</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something with map here</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://philippbosch.mit-license.org/">MIT</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/philippbosch">philippbosch</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
